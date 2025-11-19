@@ -75,9 +75,8 @@ This mirrors real-world enterprise MLOps frameworks used in production.
 ---
 
 # Step 1 — Local Training Setup (Reproducible ML)
-
-- Project structure is created (src/, jobs/, environment/, etc.)
-- train.py is implemented with:
+ 
+- **train.py is implemented with:**  
 - Reading the insurance dataset
 - Preprocessing features
 - Training an XGBoost regression model
@@ -96,8 +95,8 @@ python src/train.py --data-path data/insurance.csv
 - **Centralized logs & metrics**
 - **Reproducible runs**
 - **Automated artifact storage**
-- **This step represents the training pipeline in MLOps**  
-
+- **This step represents the training pipeline in MLOps**   
+--- 
 - A Command Job YAML (job-train.yml) defines:
 - Compute cluster to run training
 - The command: python train.py --data-path ...
@@ -115,7 +114,7 @@ az ml job create -f jobs/job-train.yml -g ml-rg -w ml-ws
 - That model is registered as: **insurance-xgb-model:1**
 
 
-- **The registry stores:**  
+**The registry stores:**  
 - Model file
 - Metadata
 - Training lineage
@@ -130,7 +129,7 @@ az ml model create \
 
 # Step 4 — Create the Inference Environment
 
-- **environment.yml defines:**
+**environment.yml defines:**  
 - Python version (3.10)
 - Dependencies:
 - pandas
@@ -139,7 +138,7 @@ az ml model create \
 - joblib
 - azureml-inference-server-http  
 
-- **Base Docker image:**
+**Base Docker image:**
 ```bash
 mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest
 ```
@@ -166,7 +165,7 @@ az ml online-endpoint create \
 
 # Step 5.2 Create the Deployment (Blue)
 
-- **The deployment includes:**
+**The deployment includes:**
 - Model (insurance-xgb-model:1)
 - Scoring script (score.py)
 - Environment (insurance-serving-env:1)
@@ -207,11 +206,11 @@ az ml online-endpoint invoke \
   --request-file test/test.json \
   -g ml-rg -w ml-ws
 ```
-# Step 7 — Getting Your Azure ML Endpoint Keys (for streamlit UI )
+# Step 6 — Getting Your Azure ML Endpoint Keys (for streamlit UI )
 
 - Azure ML uses key-based authentication for Managed Online Endpoints.  
 
-- **R**etrieve Endpoint Keys**  
+- **Retrieve Endpoint Keys**  
 ```bash
 az ml online-endpoint get-credentials \
   --name insurance-endpoint \
@@ -233,7 +232,7 @@ az ml online-endpoint get-credentials \
 
 - The Streamlit app provides a simple UI so users can generate predictions without touching Azure ML directly.
 
-- **How the Streamlit App Works:**
+**How the Streamlit App Works:**
 - User fills in details (age, BMI, smoker, region, etc.)
 - Streamlit sends a POST request to the Azure ML Online Endpoint
 - The endpoint runs your model and returns predictions
