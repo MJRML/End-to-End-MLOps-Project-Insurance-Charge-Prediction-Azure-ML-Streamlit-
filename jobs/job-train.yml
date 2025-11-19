@@ -1,0 +1,47 @@
+#Job-train.yml
+#Azure ML command JOB used to
+# - Run train.py on compue cluster
+# - Pass dataset path as input
+# - Use conda enviroment for dependecies
+# - Produce a regesitered model artifact
+#----------------------------------------
+
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+
+#Type of JOB - 'command' means execute a Python script
+type: command
+
+#Human friendly name in UI
+display_name: insurance-model-training
+
+#This groups run together in Azure Ml studio
+experiment_name: insurance-training-experiment_name
+
+#description for documentation
+description: Train an XGBoost model on the insurance dataset
+
+# Important: This tells Azure ML which folder contains train.py
+code: ../src
+
+#command to run
+#azure ml will substitute ${{inputs.insuranace_dataset}}
+#with the real path of your insurance.csv file
+command: >
+  python train.py --data-path ${{inputs.insurance_dataset}}
+
+#Inputs: userprovided datasets
+inputs:
+  insurance_dataset:
+    type: uri_file #single file format
+    path: ##add the url path to your dataset in azure ml rgsitered datasets
+
+#environment dependencies
+
+environment:
+  conda_file: ../environment/conda.yml
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest
+ #base image
+
+#compute target
+
+compute: cpu-cluster

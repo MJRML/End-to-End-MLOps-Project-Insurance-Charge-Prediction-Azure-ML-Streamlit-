@@ -1,0 +1,15 @@
+# Azure ML Conda environment for Insurance Training Job
+name: insurance-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - pandas
+      - scikit-learn
+      - xgboost
+      - joblib
+      - azureml-core
+      - azureml-inference-server-http

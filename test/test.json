@@ -1,0 +1,12 @@
+{
+  "data": [
+    {
+      "age": 25,
+      "sex": "male",
+      "bmi": 30.1,
+      "children": 0,
+      "smoker": "no",
+      "region": "southwest"
+    }
+  ]
+}

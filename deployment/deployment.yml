@@ -1,0 +1,16 @@
+$schema: https://azuremlschemas.azureedge.net/latest/onlineDeployment.schema.json
+
+name: blue
+endpoint_name: insurance-endpoint
+
+model: azureml:insurance-xgb-model:1
+
+#environment: azureml:CliV2AnonymousEnvironment:4606b0ed85d8ecbf1206ae6258fc348752a6a39d44c7edd22f50f2df90fb9dad
+environment: azureml:insurance-serving-env:1
+
+code_configuration:
+  code: ../src
+  scoring_script: score.py
+
+instance_type: Standard_DS2_v2
+instance_count: 1
