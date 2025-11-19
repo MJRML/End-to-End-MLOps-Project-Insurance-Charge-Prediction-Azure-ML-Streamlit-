@@ -245,7 +245,8 @@ az ml online-endpoint get-credentials \
 ```bash
 streamlit run streamlit_app/app.py
 ```
-
+![Streamlit_ui1](Images/1_streamlit_ui.png)
+![Streamlit_ui2](Images/2_streamlit_ui.png)
 
 
 # Future Improvements
