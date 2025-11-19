@@ -48,27 +48,27 @@ This mirrors real-world enterprise MLOps frameworks used in production.
 
 ## 📁 Project Structure
 
-├── src/
-│ ├── train.py # Training script
-│ ├── score.py # Inference script
-│
-├── jobs/
-│ └── job-train.yml # Azure ML training job definition
-│
-├── environment/
-│ └── environment.yml # Conda environment for inference
-│
-├── deployment/
-│ └── deployment.yml # Online endpoint deployment YAML
-│
-├── streamlit_app/
-│ └── app.py # Streamlit frontend
-│
-├── test/
-│ └── test.json # Sample request for testing endpoint
-│
-├── requirements.txt
-└── README.md
+├── src/  
+│ ├── train.py  #Training script  
+│ ├── score.py  #Inference script  
+│  
+├── jobs/  
+│ └── job-train.yml  #Azure ML training job definition   
+│    
+├── environment/  
+│ └── environment.yml  #Conda environment for inference  
+│  
+├── deployment/  
+│ └── deployment.yml  #Online endpoint deployment YAML  
+│  
+├── streamlit_app/  
+│ └── app.py  #Streamlit frontend  
+│  
+├── test/  
+│ └── test.json  #Sample request for testing endpoint  
+│  
+├── requirements.txt  
+└── README.md  
 
 
 
