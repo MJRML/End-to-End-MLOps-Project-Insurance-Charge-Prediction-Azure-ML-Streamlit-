@@ -5,7 +5,7 @@ endpoint_name: insurance-endpoint
 
 model: azureml:insurance-xgb-model:1
 
-#environment: azureml:CliV2AnonymousEnvironment:4606b0ed85d8ecbf1206ae6258fc348752a6a39d44c7edd22f50f2df90fb9dad
+
 environment: azureml:insurance-serving-env:1
 
 code_configuration:
